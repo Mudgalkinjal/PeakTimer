@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema(
     password: { type: String, required: true },
     isVerified: { type: Boolean, default: false },
   },
-  { collection: 'UserData' }
+  { collection: 'users' }
 )
 
 export default mongoose.model('User', UserSchema)
