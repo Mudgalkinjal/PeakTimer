@@ -6,6 +6,8 @@ import jwt from 'jsonwebtoken'
 import transporter from '../config/transporter'
 import authenticate from '../middleware/authMiddleware'
 import { getUserDataByEmail } from '../utils/userHelpers'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const router = express.Router()
 
@@ -65,7 +67,7 @@ router.get('/verify-email', async (req, res) => {
   const { token } = req.query
 
   if (!token) {
-    return res.redirect('http://localhost:3000/verify-email?status=error')
+    return res.redirect(`${process.env.APP_URL}/verify-email?status=error`)
   }
 
   try {
@@ -78,23 +80,23 @@ router.get('/verify-email', async (req, res) => {
     const user = await User.findOne({ email })
     if (!user) {
       return res.redirect(
-        'http://localhost:3000/verify-email?status=user-not-found'
+        `${process.env.APP_URL}/verify-email?status=user-not-found`
       )
     }
 
     if (user.isVerified) {
       return res.redirect(
-        'http://localhost:3000/verify-email?status=already-verified'
+        `${process.env.APP_URL}/verify-email?status=already-verified`
       )
     }
 
     user.isVerified = true
     await user.save()
 
-    return res.redirect('http://localhost:3000/verify-email?status=success')
+    return res.redirect(`${process.env.APP_URL}/verify-email?status=success`)
   } catch (error) {
     return res.redirect(
-      'http://localhost:3000/verify-email?status=invalid-token'
+      `${process.env.APP_URL}/verify-email?status=invalid-token`
     )
   }
 })
