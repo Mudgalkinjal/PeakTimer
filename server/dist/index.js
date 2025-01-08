@@ -22,12 +22,12 @@ transporter_1.default.verify((error, success) => {
         console.log('SMTP connection successful:', success);
     }
 });
-const app = express_1.default();
-app.use(cors_1.default());
+const app = (0, express_1.default)();
+app.use((0, cors_1.default)());
 // Middleware
 app.use(express_1.default.json());
 // Connect to Database
-db_1.default();
+(0, db_1.default)();
 // Mount the auth routes
 app.use('/api/auth', auth_1.default);
 // Start Server
