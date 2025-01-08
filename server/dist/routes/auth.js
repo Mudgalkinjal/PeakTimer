@@ -18,7 +18,7 @@ const User_1 = __importDefault(require("../models/User"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const transporter_1 = __importDefault(require("../config/transporter"));
 const authMiddleware_1 = __importDefault(require("../middleware/authMiddleware"));
-const userHelpers_1 = require("../utils/userHelpers");
+const userHelpers_1 = require("../utils/userHelpers")
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const router = express_1.default.Router();
