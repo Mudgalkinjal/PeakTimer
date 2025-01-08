@@ -63,7 +63,9 @@ router.post('/signup', async (req: Request, res: Response) => {
     res.status(500).json({ message: 'Server error' })
   }
 })
+
 router.get('/verify-email', async (req, res) => {
+  console.log('APP_URL:', process.env.APP_URL)
   const { token } = req.query
 
   if (!token) {
@@ -95,6 +97,7 @@ router.get('/verify-email', async (req, res) => {
 
     return res.redirect(`${process.env.APP_URL}/verify-email?status=success`)
   } catch (error) {
+    console.error('Error verifying email:', error)
     return res.redirect(
       `${process.env.APP_URL}/verify-email?status=invalid-token`
     )
