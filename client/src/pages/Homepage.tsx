@@ -12,65 +12,71 @@ const HomePage = () => {
   return (
     <div className="font-sans">
       {/* Hero Section */}
-      <section className="bg-green-500 text-white text-center py-20 px-4">
-        <h1 className="text-5xl font-bold mb-4">Welcome to Brownie Points!</h1>
+      <section className="bg-gradient-to-b from-black to-gray-900 text-white text-center py-20 px-4">
+        <h1 className="text-5xl font-extrabold mb-4">
+          Welcome to <span className="text-red-500">Peak Timer</span>!
+        </h1>
         <p className="text-lg mb-8">
-          A fun and engaging way to track your productivity, earn rewards, and
-          celebrate achievements.
+          Plan your workouts, track your sessions, and achieve your fitness
+          goals with ease.
         </p>
-        <button
-          onClick={handleSignUpNavigate}
-          className="px-6 py-3 bg-white text-green-500 font-semibold rounded-lg shadow-md hover:bg-gray-100"
-        >
-          Get Started
-        </button>
-        <button
-          onClick={handleSignInNavigate}
-          className="px-6 py-3 ml-2 bg-white text-green-500 font-semibold rounded-lg shadow-md hover:bg-gray-100"
-        >
-          Sign In
-        </button>
+        <div className="flex justify-center space-x-4">
+          <button
+            onClick={handleSignUpNavigate}
+            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+          >
+            Get Started
+          </button>
+          <button
+            onClick={handleSignInNavigate}
+            className="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+          >
+            Sign In
+          </button>
+        </div>
       </section>
 
       {/* Features Section */}
-      <section className="bg-gray-50 py-20 px-4">
+      <section className="bg-gradient-to-t from-gray-900 to-black py-20 px-4 text-white">
         <div className="max-w-4xl mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">
-            Why Use Brownie Points?
+          <h2 className="text-4xl font-bold text-white mb-4">
+            Why Use this app?
           </h2>
-          <p className="text-gray-600 text-lg">
-            Boost your productivity and make goal setting fun with our Brownie
-            Points system.
+          <p className="text-gray-300 text-lg">
+            Take control of your fitness journey with personalized workout
+            planning and tracking.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Feature 1 */}
-          <div className="border border-gray-200 rounded-lg p-6 bg-white shadow-sm hover:shadow-md">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">
-              Set Goals
+          <div className="border border-gray-700 rounded-lg p-6 bg-gray-800 shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300">
+            <h3 className="text-xl font-bold text-white mb-3">
+              Create Custom Workouts
             </h3>
-            <p className="text-gray-600">
-              Define your top tasks and break them into actionable steps.
+            <p className="text-gray-300">
+              Design your workouts with warm-ups, exercises, cool-downs, and
+              more.
             </p>
           </div>
           {/* Feature 2 */}
-          <div className="border border-gray-200 rounded-lg p-6 bg-white shadow-sm hover:shadow-md">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">
-              Earn Rewards
+          <div className="border border-gray-700 rounded-lg p-6 bg-gray-800 shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300">
+            <h3 className="text-xl font-bold text-white mb-3">
+              Track Your Progress
             </h3>
-            <p className="text-gray-600">
-              Complete tasks to earn Brownie Points and unlock fun rewards.
+            <p className="text-gray-300">
+              Stay on top of your fitness with detailed tracking of reps, sets,
+              and time.
             </p>
           </div>
           {/* Feature 3 */}
-          <div className="border border-gray-200 rounded-lg p-6 bg-white shadow-sm hover:shadow-md">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">
-              Stay Motivated
+          <div className="border border-gray-700 rounded-lg p-6 bg-gray-800 shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300">
+            <h3 className="text-xl font-bold text-white mb-3">
+              AI-Powered Suggestions
             </h3>
-            <p className="text-gray-600">
-              Track your progress and stay motivated with positive
-              reinforcement.
+            <p className="text-gray-300">
+              Get workout recommendations tailored to your goals and
+              preferences.
             </p>
           </div>
         </div>
