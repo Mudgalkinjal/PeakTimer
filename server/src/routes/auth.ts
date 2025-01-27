@@ -65,11 +65,11 @@ router.post('/signup', async (req: Request, res: Response) => {
 })
 
 router.get('/verify-email', async (req, res) => {
-  console.log('APP_URL:', process.env.APP_URL)
+  console.log('CLIENT_URL:', process.env.CLIENT_URL)
   const { token } = req.query
 
   if (!token) {
-    return res.redirect(`${process.env.APP_URL}/verify-email?status=error`)
+    return res.redirect(`${process.env.CLIENT_URL}/verify-email?status=error`)
   }
 
   try {
@@ -82,24 +82,24 @@ router.get('/verify-email', async (req, res) => {
     const user = await User.findOne({ email })
     if (!user) {
       return res.redirect(
-        `${process.env.APP_URL}/verify-email?status=user-not-found`
+        `${process.env.CLIENT_URL}/verify-email?status=user-not-found`
       )
     }
 
     if (user.isVerified) {
       return res.redirect(
-        `${process.env.APP_URL}/verify-email?status=already-verified`
+        `${process.env.CLIENT_URL}/verify-email?status=already-verified`
       )
     }
 
     user.isVerified = true
     await user.save()
 
-    return res.redirect(`${process.env.APP_URL}/verify-email?status=success`)
+    return res.redirect(`${process.env.CLIENT_URL}/verify-email?status=success`)
   } catch (error) {
     console.error('Error verifying email:', error)
     return res.redirect(
-      `${process.env.APP_URL}/verify-email?status=invalid-token`
+      `${process.env.CLIENT_URL}/verify-email?status=invalid-token`
     )
   }
 })
