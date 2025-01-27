@@ -5,7 +5,11 @@ function VerifyEmail() {
   const [searchParams] = useSearchParams()
   const status = searchParams.get('status')
   const [message, setMessage] = useState('')
+  const navigate = useNavigate()
 
+  function handleSignInNavigate() {
+    navigate('/signin')
+  }
   useEffect(() => {
     switch (status) {
       case 'success':
@@ -33,11 +37,18 @@ function VerifyEmail() {
         </h1>
         <p
           className={`text-center text-lg ${
-            status === 'success' ? 'text-green-600' : 'text-red-600'
+            status === 'success' ? 'text-blue-600' : 'text-red-600'
           }`}
         >
           {message}
         </p>
+        {/* Sign In Button */}
+        <button
+          onClick={handleSignInNavigate}
+          className="w-full mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
+        >
+          Log in to Peak Timer
+        </button>
       </div>
     </div>
   )

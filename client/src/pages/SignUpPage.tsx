@@ -70,9 +70,9 @@ const SignUpPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="w-full max-w-md bg-white p-8 shadow-lg rounded-lg">
-        <h2 className="text-2xl font-bold text-center text-green-500 mb-6">
+    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white flex items-center justify-center">
+      <div className="w-full max-w-md border border-gray-700 rounded-lg p-6 bg-gray-800 shadow-lg">
+        <h2 className="text-2xl font-bold text-center text-blue-500 mb-6">
           Sign Up
         </h2>
 
@@ -88,7 +88,7 @@ const SignUpPage = () => {
           <div className="mb-4">
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white"
             >
               Name
             </label>
@@ -109,7 +109,7 @@ const SignUpPage = () => {
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white"
             >
               Email
             </label>
@@ -130,7 +130,7 @@ const SignUpPage = () => {
           <div className="mb-4">
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white"
             >
               Password
             </label>
@@ -138,7 +138,7 @@ const SignUpPage = () => {
               id="password"
               type="password"
               {...register('password')}
-              className={`mt-1 block w-full px-4 py-2 border rounded-lg ${
+              className={`text-black mt-1 block w-full px-4 py-2 border rounded-lg ${
                 errors.password ? 'border-red-500' : 'border-gray-300'
               } focus:ring focus:ring-green-200`}
             />
@@ -151,7 +151,7 @@ const SignUpPage = () => {
           <div className="mb-4">
             <label
               htmlFor="confirmPassword"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white"
             >
               Confirm Password
             </label>
@@ -159,7 +159,7 @@ const SignUpPage = () => {
               id="confirmPassword"
               type="password"
               {...register('confirmPassword')}
-              className={`mt-1 block w-full px-4 py-2 border rounded-lg ${
+              className={`text-black mt-1 block w-full px-4 py-2 border rounded-lg ${
                 errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
               } focus:ring focus:ring-green-200`}
             />
@@ -173,7 +173,7 @@ const SignUpPage = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600"
+            className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
           >
             Sign Up
           </button>
@@ -181,7 +181,7 @@ const SignUpPage = () => {
         {/* Sign In Button */}
         <button
           onClick={handleSignInNavigate}
-          className="w-full mt-4 bg-gray-100 text-green-500 py-2 px-4 rounded-lg hover:bg-gray-200"
+          className="w-full mt-4 bg-gray-100 text-blue-500 py-2 px-4 rounded-lg hover:bg-gray-200"
         >
           Already have an account? Sign In
         </button>

@@ -18,7 +18,7 @@ const Header = () => {
       >
         <img
           src="/Peaktimer.png"
-          alt="Brownie Points Logo"
+          alt="Peak Timer Logo"
           className="rounded-full w-[10rem] h-[10rem]"
         />
       </div>
