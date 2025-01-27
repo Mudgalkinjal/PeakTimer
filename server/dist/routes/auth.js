@@ -18,7 +18,7 @@ const User_1 = __importDefault(require("../models/User"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const transporter_1 = __importDefault(require("../config/transporter"));
 const authMiddleware_1 = __importDefault(require("../middleware/authMiddleware"));
-const userHelpers_1 = require("../utils/userHelpers")
+const userHelpers_1 = require("../utils/userHelpers");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const router = express_1.default.Router();
@@ -71,28 +71,28 @@ router.post('/signup', (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 }));
 router.get('/verify-email', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log('APP_URL:', process.env.APP_URL);
+    console.log('CLIENT_URL:', process.env.CLIENT_URL);
     const { token } = req.query;
     if (!token) {
-        return res.redirect(`${process.env.APP_URL}/verify-email?status=error`);
+        return res.redirect(`${process.env.CLIENT_URL}/verify-email?status=error`);
     }
     try {
         const decoded = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET || 'your_secret');
         const email = decoded.email;
         const user = yield User_1.default.findOne({ email });
         if (!user) {
-            return res.redirect(`${process.env.APP_URL}/verify-email?status=user-not-found`);
+            return res.redirect(`${process.env.CLIENT_URL}/verify-email?status=user-not-found`);
         }
         if (user.isVerified) {
-            return res.redirect(`${process.env.APP_URL}/verify-email?status=already-verified`);
+            return res.redirect(`${process.env.CLIENT_URL}/verify-email?status=already-verified`);
         }
         user.isVerified = true;
         yield user.save();
-        return res.redirect(`${process.env.APP_URL}/verify-email?status=success`);
+        return res.redirect(`${process.env.CLIENT_URL}/verify-email?status=success`);
     }
     catch (error) {
         console.error('Error verifying email:', error);
-        return res.redirect(`${process.env.APP_URL}/verify-email?status=invalid-token`);
+        return res.redirect(`${process.env.CLIENT_URL}/verify-email?status=invalid-token`);
     }
 }));
 // Sign In Route
